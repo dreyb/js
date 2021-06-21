@@ -9,12 +9,19 @@ let colorNow = 0; //starts with blue
 
 alert("To change your brush's color, please right-click with your mouse.");
 
+let radius = 10;
+
 function drawCircle(event) {
   let x = event.pageX - screen.offsetLeft;
   let y = event.pageY - screen.offsetTop;
-  let radius = 10;
   if (event.shiftKey) {
-    radius += 20;
+    radius += 10;
+  }
+  if (event.altKey) {
+    radius -= 5;
+  }
+  if (radius > 40 || radius < 10) {
+    radius = 10;
   }
   pencil.fillStyle = color[colorNow];
   pencil.beginPath();
