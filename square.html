@@ -1,0 +1,25 @@
+<meta charset="utf-8" />
+
+<canvas width="600" height="400"></canvas>
+<script>
+  let screen = document.querySelector("canvas");
+  let pencil = screen.getContext("2d");
+
+  //black triangle
+  pencil.fillStyle = "black";
+  pencil.beginPath();
+  pencil.moveTo(50, 50);
+  pencil.lineTo(50, 400);
+  pencil.lineTo(400, 400);
+  pencil.lineTo(50, 50);
+  pencil.fill();
+
+  //white triangle
+  pencil.fillStyle = "white";
+  pencil.beginPath();
+  pencil.moveTo(100, 175);
+  pencil.lineTo(100, 350);
+  pencil.lineTo(275, 350);
+  pencil.lineTo(100, 175);
+  pencil.fill();
+</script>
