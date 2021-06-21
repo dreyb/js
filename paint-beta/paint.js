@@ -12,9 +12,13 @@ alert("To change your brush's color, please right-click with your mouse.");
 function drawCircle(event) {
   let x = event.pageX - screen.offsetLeft;
   let y = event.pageY - screen.offsetTop;
+  let radius = 10;
+  if (event.shiftKey) {
+    radius += 20;
+  }
   pencil.fillStyle = color[colorNow];
   pencil.beginPath();
-  pencil.arc(x, y, 10, 0, 2 * 3.14);
+  pencil.arc(x, y, radius, 0, 2 * 3.14);
   pencil.fill();
   console.log(x + "," + y);
 }
