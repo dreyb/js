@@ -1,4 +1,4 @@
-let paleta = document.querySelector("input");
+let palette = document.querySelector("input");
 let screen = document.querySelector("canvas");
 let pencil = screen.getContext("2d");
 
@@ -14,7 +14,7 @@ function drawCircle(event) {
   if (draw) {
     let x = event.pageX - screen.offsetLeft;
     let y = event.pageY - screen.offsetTop;
-    pencil.fillStyle = paleta.value;
+    pencil.fillStyle = palette.value;
     pencil.beginPath();
     pencil.arc(x, y, radius, 0, 2 * 3.14);
     pencil.fill();
