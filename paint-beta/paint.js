@@ -1,3 +1,4 @@
+let paleta = document.querySelector("input");
 let screen = document.querySelector("canvas");
 let pencil = screen.getContext("2d");
 
@@ -6,11 +7,6 @@ pencil.fillRect(0, 0, 600, 400);
 pencil.strokeStyle = "black";
 pencil.strokeRect(0, 0, 600, 400);
 
-let color = ["blue", "red", "green"];
-let colorNow = 0; //starts with blue
-
-alert("To change your brush's color, please right-click with your mouse.");
-
 let radius = 10;
 let draw = false;
 
@@ -18,7 +14,7 @@ function drawCircle(event) {
   if (draw) {
     let x = event.pageX - screen.offsetLeft;
     let y = event.pageY - screen.offsetTop;
-    pencil.fillStyle = color[colorNow];
+    pencil.fillStyle = paleta.value;
     pencil.beginPath();
     pencil.arc(x, y, radius, 0, 2 * 3.14);
     pencil.fill();
@@ -36,15 +32,6 @@ function drawCircle(event) {
 
 screen.onmousemove = drawCircle;
 
-function colorChange() {
-  colorNow++;
-  if (colorNow >= color.length) {
-    colorNow = 0;
-  }
-  alert("Color changed.");
-  return false;
-}
-
 function enableDraw() {
   draw = true;
 }
@@ -53,6 +40,5 @@ function disableDraw() {
   draw = false;
 }
 
-screen.oncontextmenu = colorChange;
 screen.onmousedown = enableDraw;
 screen.onmouseup = disableDraw;
